@@ -1,0 +1,15 @@
+.edit-exercise-icon {
+    color: #4267B2;
+}
+
+.delete-exercise-icon {
+    color: #d3322a;
+}
+
+.delete-exercise-icon:hover {
+    cursor: pointer;
+}
+
+td {
+    text-align: left;
+}

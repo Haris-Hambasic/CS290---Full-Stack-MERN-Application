@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600&display=swap');
+
+/* font-family: 'Playfair Display', serif; */
+/* font-family: 'Montserrat', sans-serif; */
+
+.create-exercise-container {
+    width: 60%;
+    margin: 8rem auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    color: #444;
+}
+
+.create-exercise-calling-container {
+    width: 50%;
+}
+
+.create-exercise-calling {
+    color: #e84142;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.create-exercise-statement {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.7;
+}
+
+.create-exercise-form {
+    margin: 0 auto;
+    /* background-color: aqua; */
+    width: 30%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+label {
+    font-size: 1.25rem;
+    color: #444;
+}
+
+input {
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-color: #e84142;
+    border-bottom-width: 1px;
+    color: #e84142;
+    width: 100%;
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    padding: .35rem 0;
+}
+
+input:focus {
+    outline: none;
+    caret-color: #e84142;
+    color: #e84142;
+}
+
+input::placeholder {
+    color: #444;
+}
+
+button {
+    padding: .75rem 1.25rem;
+    border-style: solid;
+    border-color: #e84142;
+    border-radius: 6px;
+    background-color: #e84142;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+}
+
