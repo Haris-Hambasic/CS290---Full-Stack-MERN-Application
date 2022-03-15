@@ -9,6 +9,7 @@
     display: flex;
     justify-content: space-between;
     color: #444;
+    margin-bottom: 9rem;
 }
 
 .create-exercise-calling-container {
@@ -76,3 +77,18 @@ button {
     letter-spacing: 1px;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
+select {
+    padding: .25rem .5rem;
+    background-color: #fff;
+    border: none;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 6px;
+    color: #e84142;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}

@@ -11,6 +11,7 @@ const EditExerciseDisplay = () => {
     const [weight, setWeight] = useState(0);
     const [unit, setUnit] = useState("");
     const [date, setDate] = useState("");
+    const [selectValue, setSelectValue] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -27,8 +28,8 @@ const EditExerciseDisplay = () => {
         })
             .then(dataJSON => dataJSON.json())
             .then(updated_exercise => {
-                console.log("UPDATED EXERCISE:", updated_exercise)
-                navigate("/", { replace: true });
+                alert("Exercise was successfully updated!");
+                return navigate("/", { replace: true });
             })
             .catch(error => console.log(error));
     };
@@ -46,6 +47,11 @@ const EditExerciseDisplay = () => {
             .catch(error => console.log(error));
     }, []);
 
+    const handleSelectChange = (e) => {
+        setSelectValue(e.target.value);
+        setUnit(e.target.value);
+    };
+
     return (
         <>
         <section className="edit-exercise-container">
@@ -61,7 +67,10 @@ const EditExerciseDisplay = () => {
                 <label htmlFor="weight">Weight:</label> <br />
                 <input type="number" id="weight" name="weight" placeholder="Enter the weight to use" onChange={e => setWeight(e.target.value)} value={weight} /> <br/>
                 <label htmlFor="unit">Unit:</label> <br />
-                <input type="text" id="unit" name="unit" placeholder="Enter the weight unit" onChange={e => setUnit(e.target.value)} value={unit} /> <br/>
+                <select value={selectValue} onChange={handleSelectChange}>
+                    <option value={"lbs"}>lbs</option>
+                    <option value={"kg"}>kg</option>
+                </select> <br />
                 <label htmlFor="date">Date:</label> <br />
                 <input type="text" id="date" name="date" placeholder="Enter the date to perform the exercise (MM-DD-YY)" onChange={e => setDate(e.target.value)} value={date} /> <br/>
                 <button type="submit">Update Exercise</button>

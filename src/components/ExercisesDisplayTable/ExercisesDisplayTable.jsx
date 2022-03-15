@@ -16,7 +16,6 @@ const ExercisesDisplayTable = () => {
 
     const deleteExercise = (id) => {
         fetch(`http://localhost:3000/exercises/${id}`, { method: "DELETE" })
-            .then(dataJSON => dataJSON.json())
             .then(deleted_exercise_acknowledgement => {
                 const updatedExercises = exercises.filter(exercise => exercise._id != id);
                 setExercises(updatedExercises);

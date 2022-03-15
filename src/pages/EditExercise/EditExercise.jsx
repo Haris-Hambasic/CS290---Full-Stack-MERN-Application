@@ -4,7 +4,6 @@ import { EditExerciseDisplay } from "../../components/EditExerciseDisplay/EditEx
 const EditExercise = () => {
     return (
         <>
-            <Navigation />
             <EditExerciseDisplay />
         </>
     );

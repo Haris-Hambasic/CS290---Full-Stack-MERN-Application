@@ -4,7 +4,7 @@ import "./styles/Navigation.css";
 
 const Navigation = () => {
     return (
-        <div className="navigation-outer-container">
+        <header className="navigation-outer-container">
             <div className="navigation-inner-container">
                 <Link to={"/"} className="logo-container">
                     <GiWeightLiftingUp className="logo-icon" />
@@ -20,7 +20,7 @@ const Navigation = () => {
                     </ul>    
                 </nav>
             </div>
-        </div>
+        </header>
     );
 };
 

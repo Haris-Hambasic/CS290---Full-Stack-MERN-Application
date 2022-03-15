@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom";
-import { Navigation } from "../../components/Navigation/Navigation";
 import { ExercisesDisplayTable } from "../../components/ExercisesDisplayTable/ExercisesDisplayTable";
-import { Footer } from "../../components/Footer/Footer";
 import "./styles/Home.css";
 
 const Home = () => {
     return (
         <>
-            <Navigation />
             <div className="hero-container">
                 <h2 className="hero-calling-title">We are training, <span className="perfected">perfected</span></h2>
                 <p className="hero-calling-statement">Our fitness experts are ready to help you achieve<br />your goals and set in motion a lifetime of fitness.</p>
@@ -21,7 +18,6 @@ const Home = () => {
                     <Link to={"/create-exercise"} className="create-exercise-link">Create Exercise</Link>
                 </div>
             </div>
-            <Footer />
         </>
     );
 };

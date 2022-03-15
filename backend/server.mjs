@@ -18,7 +18,10 @@ fullStackMERNApp.use(cors());
 
 fullStackMERNApp.delete("/exercises/:id", (req, res) => {
     Exercises.deleteExercise(req.params.id)
-        .then(deletedExercise => res.status(200).json(deletedExercise))
+        .then(deletedExercise => {
+            res.status(204);
+            res.json(deletedExercise)
+        })
         .catch(error => res.status(500).json(error));
 });
 
@@ -32,7 +35,11 @@ fullStackMERNApp.put("/exercises/:id", (req, res) => {
         req.body.unit,
         req.body.date
     )
-    .then(updated_exercise => res.status(200).json(updated_exercise))
+    .then(updated_exercise => {
+        res.type("application/json");
+        res.status(200);
+        res.json(updated_exercise);
+    })
     .catch(error => res.status(500).json(error));
 });
 
@@ -53,14 +60,20 @@ fullStackMERNApp.post("/exercises", (req, res) => {
         req.body.unit,
         req.body.date
     )
-    .then(createdExercise => res.status(201).json(createdExercise))
+    .then(createdExercise => {
+        res.type("application/json");
+        res.status(200);
+        res.json(createdExercise);
+    })
     .catch(error => res.status(500).json(error))
 });
 
 fullStackMERNApp.get("/exercises", (req, res) => {
     const exercises = Exercises.getExercises()
         .then(exercises => {
-            res.status(200).json(exercises);
+            res.type("application/json");
+            res.status(200);
+            res.json(exercises);
         })
         .catch(error => res.status(500).json(error));
 });

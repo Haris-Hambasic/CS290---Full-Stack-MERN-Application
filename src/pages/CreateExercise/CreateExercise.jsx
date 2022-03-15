@@ -11,10 +11,11 @@ const CreateExercise = () => {
     const [weight, setWeight] = useState(0);
     const [unit, setUnit] = useState("");
     const [date, setDate] = useState("");
+    const [selectValue, setSelectValue] = useState("lbs");
     
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("such cool")
+        console.log("unit:", unit);
         await fetch("http://localhost:3000/exercises", {
             method: "POST",
             body: JSON.stringify({
@@ -28,15 +29,19 @@ const CreateExercise = () => {
         })
         .then(dataJSON => dataJSON.json())
         .then(createdExercise => {
-            console.log(createdExercise)
-            navigation("/", { replace: true });
+            alert(`Exercise was successfully created!`);
+            return navigation("/", { replace: true });
         })
         .catch(error => console.log(error));
     };
 
+    const handleSelectChange = (e) => {
+        setSelectValue(e.target.value);
+        setUnit(e.target.value);
+    };
+
     return (
         <>
-        <Navigation />
         <section className="create-exercise-container">
             <section className="create-exercise-calling-container">
                 <h1 className="create-exercise-calling">Create an exercise to add it to your exercise tracker.</h1>
@@ -50,7 +55,10 @@ const CreateExercise = () => {
                 <label htmlFor="weight">Weight:</label> <br />
                 <input type="number" id="weight" name="weight" placeholder="Enter the weight to use" onChange={e => setWeight(e.target.value)} /> <br/>
                 <label htmlFor="unit">Unit:</label> <br />
-                <input type="text" id="unit" name="unit" placeholder="Enter the weight unit" onChange={e => setUnit(e.target.value)} /> <br/>
+                <select value={selectValue} onChange={handleSelectChange}>
+                    <option value={"lbs"}>lbs</option>
+                    <option value={"kg"}>kg</option>
+                </select> <br />
                 <label htmlFor="date">Date:</label> <br />
                 <input type="text" id="date" name="date" placeholder="Enter the date to perform the exercise (MM-DD-YY)" onChange={e => setDate(e.target.value)} /> <br/>
                 <button type="submit">Create Exercise</button>
